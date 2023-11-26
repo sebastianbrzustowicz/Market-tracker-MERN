@@ -1,0 +1,493 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    margin: 1rem;
+    text-align: center;
+}
+
+.nav {
+    background-color: #333;
+    color:rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 0 1rem;
+    border-bottom: solid 2px #111;
+}
+
+.nav .site-title > img {
+    width: 30px;
+    height: 30px;
+    margin: 5px 10px auto auto;
+}
+
+.nav textDiv {
+    font-family: arial; font-size: 25px;
+}
+
+.site-title {
+    font-size: 2rem;
+    color: white !important;
+}
+
+.nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav a {
+    color:inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .25rem;
+}
+
+.nav li.active {
+    background-color: #555;
+}
+
+.nav li:hover {
+    background-color: #777;
+}
+
+.nav .icon {
+    width: 15px;
+    height: auto;
+    opacity: 40%;
+    margin-right: 5px;
+}
+
+.searchbar {
+    margin: auto auto auto 20px;  
+    line-height: 3em;
+    border: solid 2px rgba(255, 255, 255, 0.4);
+    height: 35px;
+    background-color: black;
+    border-radius: 4px;
+}
+
+.searchbar button {
+    background-color: black;
+    border: none;
+    vertical-align: top;
+    margin-top: 5px;
+}
+
+.searchbar button img {
+    width: 20px;
+    height: auto;
+    opacity: 40%;
+}
+
+.searchbar input {
+    background-color: black;
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+    vertical-align: top;
+    height: 30px;
+    margin-top: 1px;
+}
+
+.searchbar input:focus {
+    outline: none;
+}
+
+.watchlist {
+    margin: 20px auto 20px auto;
+    background-color: black;
+    color: white;
+    width: 20%;
+    height: 450px;
+    border-radius: 10px;
+}
+
+.watchlist div {
+    justify-content: space-between;
+    display: flex;
+}
+
+.watchlist div ul {
+    list-style: none;
+    background-color: black;
+    width: 50%;
+    text-align: left;
+    font-size: 15px;
+}
+
+.watchlist div ul li {
+    margin-top: 17px;
+    width: 73px;
+    cursor: pointer;
+}
+
+.graph {
+    margin: 20px auto 20px auto;
+    background-color: black;
+    color: white;
+    width: 50%;
+    height: 450px;
+    border-radius: 10px;
+}
+
+.graph form {
+    margin: 10px 10px 2px 0px;
+    float:right;
+}
+
+.graph span:nth-child(1) {
+    position: absolute;
+    margin: 10px auto auto -220px;
+}
+
+.graph span:nth-child(2) {
+    position: absolute;
+    margin: 10px auto auto -25px;
+}
+
+.graph span:nth-child(3) {
+    position: absolute;
+    margin: 10px auto auto 110px;
+}
+
+
+
+.graph form button {
+    margin: 1px 1px auto 10px;
+    float: right;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    border: 1px solid green;
+    cursor: pointer;
+}
+
+.graph form input {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 12;
+    color: white;
+}
+
+.graph form button:hover {
+    outline: 2px solid green;
+}
+
+.positions {
+    margin: 20px auto 20px auto;
+    background-color: black;
+    color: white;
+    width: 25%;
+    height: 450px;
+    border-radius: 10px;
+}
+
+.positions ul {
+    color: white;
+    margin-left: 20px;
+    margin-top: 30px;
+    text-align: left;
+    font-size: 15px;
+    list-style: none;
+}
+
+.positions ul li {
+    margin-top: 16px;
+}
+
+.positions ul li span {
+    background:
+    linear-gradient(
+      to right,
+      black,
+      black
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgb(255, 187, 0),
+      rgb(234, 255, 0)
+  );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+  cursor: pointer;
+}
+
+.positions ul li span:hover {
+    background-size: 0 3px, 100% 3px;
+
+}
+
+.positions ul li button {
+    float: right;
+    margin-right: 60px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    cursor: pointer;
+}
+
+.positions ul li button:hover {
+    outline: 2px solid red;
+}
+
+.colorGreen {
+    color: green;
+}
+
+.colorRed {
+    color: rgb(150, 0, 0);
+}
+
+.colorWhite {
+    color: white;
+}
+
+.watchlist div ul li span {
+    background:
+    linear-gradient(
+      to right,
+      black,
+      black
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgb(255, 187, 0),
+      rgb(234, 255, 0)
+  );
+  background-size: 100% 3px, 0 3px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+  cursor: pointer;
+}
+
+.watchlist div ul li span:hover {
+    background-size: 0 3px, 100% 3px;
+
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    background-color: none;
+    color: white;
+
+}
+
+.footer h6 {
+    color: rgb(220, 220, 220);
+    font-weight: 200;
+    display: inline;
+}
+
+.footer h6 span{
+    color: white;
+    font-weight: bold;
+    display: inline;
+}
+
+.devIcon {
+    width: 20px;
+    height: auto;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+.about {
+    margin: 2px auto 20px auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: black;
+    color: white;
+    width: 500px;
+    height: 450px;
+    border-radius: 10px;
+}
+
+.about p:nth-child(3){
+    color: gray;
+    letter-spacing: 1px;
+    line-height: 2.5;
+}
+
+.contact {
+    margin: -14px 30px 20px auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: white;
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    background: rgba(0,0,0,1);
+
+}
+
+.contact p {
+    float: left;
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.contact form {
+    float: left;
+    margin-top: -30px;
+    line-height: 20px;
+    width: 100%;
+}
+
+.contact form label {
+    float: left;
+    margin: 15px auto 5px auto;
+    line-height: 20px;
+}
+
+.contact form input {
+    width: 100%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(150, 150, 150);
+    padding-left: 15px;
+    color: black;
+    border: none;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact form textarea {
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+    border-radius: 10px;
+    background-color: rgb(150, 150, 150);
+    padding-left: 15px;
+    padding-top: 5px;
+    line-height: large;
+    color: black;
+    resize: vertical;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact form textarea:focus, .contact form input:focus {
+    outline: blue 1px solid;
+}
+
+.contact form input::placeholder, .contact form textarea::placeholder {
+    color: black;
+    opacity: 0.6; /* Firefox */
+  }
+  
+.contact form input::placeholder, .contact form textarea::-ms-input-placeholder { /* Edge 12 -18 */
+    color: black;
+  }
+
+.contact form button {
+    width: 130px;
+    height: 30px;
+    margin: 19px auto 19px auto;
+    float: left;
+    border-radius: 10px;
+    border: 1px solid gray;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.contact form button:hover {
+    outline: 2px solid blue;
+}
+
+.contact2 {
+    background-color: none;
+    margin: -14px auto 20px 30px;
+    color: white;
+    width: 500px;
+    height: 450px;
+}
+
+.contact2 p {
+    font-size: 16px;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    text-align: left;
+    width: 207px;
+}
+
+.contact2 p:nth-child(1) {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 64px;
+    text-align: left;
+}
+
+.contact2 p:nth-child(2), .contact2 p:nth-child(3) {
+    cursor: pointer;
+}
+
+.contact2 div {
+    position: relative;
+    bottom: -6px;
+    margin: auto auto 0 0;
+    width: 250px;
+    height: 250px;
+    text-align: left;
+    background: rgba(0,0,0,1);
+
+    vertical-align: bottom;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.register-form, .login-form {
+    margin: 200px auto auto auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 250px;
+    text-align: center;
+    border-radius: 10px;
+    line-height: 30px;
+    padding: 5px 10px 10px 10px;
+}
+
+.login-form label, .register-form label {
+ color: white;
+}
+
+.login-form input, .register-form input {
+    width: 85%;
+    color: white;
+    border: 1px gray solid;
+    border-radius: 5px;
+    line-height: 18px;
+    background-color: #203A43;
+    padding-left: 5px;
+}
+
+.register-form button, .login-form button {
+    width: 93px;
+    margin: 5px;
+    margin-top: 15px;
+    background-color: #0F2027;
+    color: white;
+    border: 1px gray solid;
+    border-radius: 5px;
+}
