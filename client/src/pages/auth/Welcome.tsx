@@ -27,6 +27,10 @@ export default function Welcome() {
         const emailNameR = (document.getElementById('emailNameR') as HTMLInputElement).value;
         const loginNameR = (document.getElementById('loginNameR') as HTMLInputElement).value;
         const passwordNameR = (document.getElementById('passwordNameR') as HTMLInputElement).value;
+        const passwordName2R = (document.getElementById('passwordName2R') as HTMLInputElement).value;
+
+        if (passwordNameR === passwordName2R) {
+        if (passwordNameR.length < 8) {setRegisterStatus("Password too short!")} else {
         //console.log(loginNameR);
         //fetch("http://localhost:9000/users/registration/check/")
         //.then( res => { return res.text()} )
@@ -45,6 +49,11 @@ export default function Welcome() {
         })
         .then(function (response) { return response.json()})
         .then(result => setRegisterStatus(result.message))
+        }
+        }
+        else {
+            setRegisterStatus("Passwords are not the same!")
+        }
         //.then((result) => {
         //  if(result.message === "Email taken!"){
         //    alert("Email taken!");
