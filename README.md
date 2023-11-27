@@ -18,7 +18,7 @@ npm run build
 
 ## React structure tree
 
-![284414032-42b97b4f-5fd2-439f-855d-1966bd9e4696](https://github.com/sebastianbrzustowicz/Market-tracker-webapp/assets/66909222/c12bef66-e0f9-4f94-af42-24ff344d786f)
+![reacttree](https://github.com/sebastianbrzustowicz/Market-tracker-MERN/assets/66909222/fd47ffb6-bfcd-4cde-89fc-ccac9d71e798)
 
 ## Overview
 
