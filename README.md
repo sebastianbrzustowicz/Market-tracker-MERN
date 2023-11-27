@@ -24,12 +24,12 @@ npm run build
 
 ### Stocks:
 
-![285007628-beb0b9bd-c8e4-45d8-943d-e096df60d9ae](https://github.com/sebastianbrzustowicz/Market-tracker-webapp/assets/66909222/560b6e3d-d59a-4f5d-b972-a2f0d464730e)
+![stocks](https://github.com/sebastianbrzustowicz/Market-tracker-MERN/assets/66909222/a5bf13ed-a2e4-4967-872c-cc802eb5a74a)
 
 ### Feedback:
 
-![284408326-a798cd8a-a42a-40d3-bd94-9993d2a8dce3](https://github.com/sebastianbrzustowicz/Market-tracker-webapp/assets/66909222/f9f7396a-1493-4a3a-ad0f-889098bd3dd1)
+![feedback](https://github.com/sebastianbrzustowicz/Market-tracker-MERN/assets/66909222/d0e7609c-a8e2-4654-a0f5-bba9dbb26fd9)
 
 ### About:
 
-![284408337-769a7559-1c69-4af6-baaf-976140982b53](https://github.com/sebastianbrzustowicz/Market-tracker-webapp/assets/66909222/925c5791-fc48-4045-b731-706be73d3dc2)
+![info](https://github.com/sebastianbrzustowicz/Market-tracker-MERN/assets/66909222/9b632d3d-22bb-420e-8c16-87df031e9b14)
