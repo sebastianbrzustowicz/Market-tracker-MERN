@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 const mongoose = require('mongoose');
 
 // Mongodb connection
-const uri = "uri";
+const uri = "your uri";
 async function connect() {
     try{
         (await mongoose.connect(uri)).isObjectIdOrHexString(()=> {console.log("connected");});

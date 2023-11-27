@@ -1,25 +1,48 @@
 import { useState } from 'react'
 
-export default function Welcome() {
-    
-    const [showForm, setShowForm] = useState("login")
+interface WelcomeProps {
+    loginStatus: string;
+    setLoginStatus: (status: string) => void;
+    registerStatus: string;
+    setRegisterStatus: (status: string) => void;
+  }
 
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
-    }
+export default function Welcome({loginStatus, setLoginStatus, registerStatus, setRegisterStatus}: WelcomeProps) {
+
+    const [showForm, setShowForm] = useState("login")
 
     function changeForm() {
         showForm === "login" ? setShowForm("register") : setShowForm("login")
     }
 
-    const [loginStatus, setLoginStatus] = useState('');
-    const [registerStatus, setRegisterStatus] = useState('');
-
     function handleLogin(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        fetch("http://localhost:9000/users/login/check/")
-        .then( res => { return res.text()} )
-        .then( data => setLoginStatus(data))
+        const emailNameL = (document.getElementById('emailNameL') as HTMLInputElement).value;
+        const passwordNameL = (document.getElementById('passwordNameL') as HTMLInputElement).value;
+
+        fetch("http://localhost:9000/users/login/check/", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: emailNameL,
+              password: passwordNameL,
+           }),
+        })
+        .then(function (response) { return response.json()})
+        .then(result => {setLoginStatus(result.message)
+        if (result.message === "Logged in :)") {
+            sessionStorage.setItem("message" , result.message);
+            sessionStorage.setItem("login" , result.login);
+            sessionStorage.setItem("password" , result.password);
+        } else {
+            sessionStorage.setItem("message" , '');
+            sessionStorage.setItem("login" , '');
+            sessionStorage.setItem("password" , '');
+        }
+        })
+
     }
 
     function handleRegistration(event: React.FormEvent<HTMLFormElement>) {
@@ -70,12 +93,13 @@ export default function Welcome() {
         <>
         <form className="login-form" onSubmit={handleLogin}>
             <div style={{color: "white", fontSize: 20}}>Login form</div>
-            <label htmlFor="loginNameL">Login</label>
-            <input id="loginNameL" type="text" required></input>
+            <label htmlFor="emailNameL">Email</label>
+            <input id="emailNameL" type="text" required></input>
             <label htmlFor="passwordNameL">Password</label>
             <input id="passwordNameL" type="password" required></input>
             <button type="submit">Log in</button>
             <button onClick={changeForm}>Swap to register</button>
+            <br/>
             <label>{loginStatus}</label>
         </form>
         </>
@@ -95,7 +119,8 @@ export default function Welcome() {
             <label htmlFor="passwordName2R">Repeat password</label>
             <input id="passwordName2R" type="password" required></input>
             <button type="submit">Register</button>
-            <button onClick={changeForm}>Swap to login</button><br/>
+            <button onClick={changeForm}>Swap to login</button>
+            <br/>
             <label>{registerStatus}</label>
         </form>
         

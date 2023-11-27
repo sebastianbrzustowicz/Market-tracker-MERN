@@ -6,9 +6,23 @@ router.get('/', function(req, res, next) {
     res.send('Registration successful!');
   });
 
-router.get('/login/check/', function(req, res, next) {
+router.post('/login/check/', function(req, res, next) {
   console.log('Login checking ...');
-  res.send('Login failed!');
+
+  Users.find({ email : req.body.email }).exec()
+  .then( result => {//console.log(result)
+  if (result.length<1) {res.send({message: "No such account!", login: "", password: "" });res.end();} 
+  
+  else {
+  if (req.body.password === result[0].password) {
+    res.send({message: "Logged in :)", login: result[0].login, password: result[0].password });
+    res.end();
+
+  } else {
+    res.send({message: "Wrong password!", login: "", password: "" });
+    res.end();
+  }  
+  }})
   });
 
 router.post('/registration/check/', function(req, res, next) {

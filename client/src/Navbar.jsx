@@ -6,8 +6,9 @@ import aboutIcon from './images/aboutIcon.png';
 import logoutIcon from './images/logoutIcon.png';
 import loupeIcon from './images/loupeIcon.png';
 import mainIcon from './images/mainIcon.png';
+import { useNavigate } from "react-router-dom";
 
-export default function Navbar({symbol, setSymbol, history, setHistory}) {
+export default function Navbar({symbol, setSymbol, history, setHistory, setLoginStatus}) {
 
   function handleSubmit(e) { // new search - applay new graph and add to history
     e.preventDefault();
@@ -19,6 +20,15 @@ export default function Navbar({symbol, setSymbol, history, setHistory}) {
         false }, ...currentHistory]
     localStorage.setItem("history", JSON.stringify(newHistory))
     return newHistory})
+  };
+
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();   // keep link from immediately navigating
+    setLoginStatus('');
+    sessionStorage.setItem('message', '')
+    navigate("/");
   };
 
   return (
@@ -35,7 +45,7 @@ export default function Navbar({symbol, setSymbol, history, setHistory}) {
           <CustomLink to="/"><img src={stockstIcon} className='icon' alt="Stocks" />Stocks</CustomLink>
           <CustomLink to="/feedback"><img src={feedbackIcon} className='icon' alt="Feedback" />Feedback</CustomLink>
           <CustomLink to="/about"><img src={aboutIcon} className='icon' alt="About" />About</CustomLink>
-          <CustomLink to="/logout"><img src={logoutIcon} className='icon' alt="Log Out" />Log Out</CustomLink>
+          <CustomLink to="/logout" onClick={handleLogout}><img src={logoutIcon} className='icon' alt="Log Out" />Log Out</CustomLink>
         </ul>
       </nav>
     )
