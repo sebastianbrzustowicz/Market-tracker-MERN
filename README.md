@@ -4,7 +4,7 @@ React + Node.js + MongoDB + Express. This web application allows you to track yo
 
 ## Available Scripts
 
-In the project directory, you can run:
+In both server and client directory, you can run:
 
 ```
 npm start
@@ -15,6 +15,16 @@ Build the app for production to the `build` folder:
 ```
 npm run build
 ```
+
+## Unit tests
+Tests were done with Jest and Supertest. For unit tests restoration move folder `tests` into server folder and then:
+```
+npm test
+```
+
+<p align="center">
+  <img src="https://github.com/sebastianbrzustowicz/Market-tracker-MERN/assets/66909222/e7afd6fb-b8ae-4a88-8a21-15390ec11a54" />
+</p>
 
 ## React structure tree
 
