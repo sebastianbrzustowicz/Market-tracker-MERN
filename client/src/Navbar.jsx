@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Navbar({symbol, setSymbol, history, setHistory, setLoginStatus}) {
 
-  function handleSubmit(e) { // new search - applay new graph and add to history
+  function handleSubmit(e) { // new search - apply new graph and add to history
     e.preventDefault();
     const newSymbol = e.target[1].value
     setSymbol(e.target[1].value)
@@ -25,7 +25,7 @@ export default function Navbar({symbol, setSymbol, history, setHistory, setLogin
   const navigate = useNavigate();
 
   const handleLogout = (e) => {
-    e.preventDefault();   // keep link from immediately navigating
+    e.preventDefault();   // prevent link from immediate navigation
     setLoginStatus('');
     sessionStorage.setItem('message', '')
     navigate("/");

@@ -3,7 +3,8 @@ var router = express.Router();
 const Users = require('../models/users')
 
 router.get('/', function(req, res, next) {
-    res.send('Registration successful!');
+    res.send('test');
+    res.end();
   });
 
 router.post('/login/check/', function(req, res, next) {
@@ -25,16 +26,12 @@ router.post('/login/check/', function(req, res, next) {
   }})
   });
 
-router.post('/registration/check/', function(req, res, next) {
-  //if (request.method == 'POST') {
+router.post('/registration/check/', async function(req, res, next) {
   console.log('Registration checking ...');
-  // to do: check login availbility
-  //console.log(req.body)
-  //
   message = "Checking availbility..."
   Users.find({ email : req.body.email }).exec()
   .then( result => {//console.log(result)
-  if (result.length>0) {res.send({message: "Email taken!" });res.end();} 
+  if (result.length>0) {message = "Email taken!"} 
   else {
   const newUser = new Users({
     email: req.body.email,
@@ -42,21 +39,12 @@ router.post('/registration/check/', function(req, res, next) {
     password: req.body.password,
   });
   newUser.save();
-  res.send({message: "Registered :)" });
-  res.end();
+  message = "Registered :)"
   }})
-  
-  ////const newUser = new Users({
-  ////  email: req.body.email,
-  ////  login: req.body.login,
-  ////  password: req.body.password,
-  ////});
-  ////newUser.save();
-  //
-  
-  //res.send('Registration successful!');
-  //res.send('Registration failed!');
-  //}
+  .then(()=> {
+  res.send({message: message });
+  res.end();
+  })
   });
 
 module.exports = router;
