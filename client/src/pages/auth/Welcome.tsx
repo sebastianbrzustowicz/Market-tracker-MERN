@@ -7,6 +7,7 @@ interface WelcomeProps {
     setRegisterStatus: (status: string) => void;
   }
 
+// This function is about to render login/register form
 export default function Welcome({loginStatus, setLoginStatus, registerStatus, setRegisterStatus}: WelcomeProps) {
 
     const [showForm, setShowForm] = useState("login")
@@ -54,17 +55,14 @@ export default function Welcome({loginStatus, setLoginStatus, registerStatus, se
 
         if (passwordNameR === passwordName2R) {
         if (passwordNameR.length < 8) {setRegisterStatus("Password too short!")} else {
-        //console.log(loginNameR);
-        //fetch("http://localhost:9000/users/registration/check/")
-        //.then( res => { return res.text()} )
-        //.then( data => setRegisterStatus(data))
+
         fetch("http://localhost:9000/users/registration/check/", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              //id: "123"
+
               email: emailNameR,
               login: loginNameR,
               password: passwordNameR,
@@ -77,15 +75,6 @@ export default function Welcome({loginStatus, setLoginStatus, registerStatus, se
         else {
             setRegisterStatus("Passwords are not the same!")
         }
-        //.then((result) => {
-        //  if(result.message === "Email taken!"){
-        //    alert("Email taken!");
-        //    //this.goToMain();
-        //   } else {
-        //       alert("Registered :)");
-        //   }
-        //});
-
     }
     
     const LoginForm = () => {

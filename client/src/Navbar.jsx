@@ -25,7 +25,7 @@ export default function Navbar({symbol, setSymbol, history, setHistory, setLogin
   const navigate = useNavigate();
 
   const handleLogout = (e) => {
-    e.preventDefault();   // prevent link from immediate navigation
+    e.preventDefault();
     setLoginStatus('');
     sessionStorage.setItem('message', '')
     navigate("/");

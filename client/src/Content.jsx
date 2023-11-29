@@ -10,7 +10,6 @@ export default function Content({symbol, history, setHistory, setSymbol, setLogi
           <Route path="/" element={<Home symbol={symbol} history={history} setHistory={setHistory} setSymbol={setSymbol} />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/about" element={<About />} />
-
         </Routes>
     )
 }

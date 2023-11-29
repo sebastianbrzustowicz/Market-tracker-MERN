@@ -11,7 +11,7 @@ router.post('/login/check/', function(req, res, next) {
   console.log('Login checking ...');
 
   Users.find({ email : req.body.email }).exec()
-  .then( result => {//console.log(result)
+  .then( result => {
   if (result.length<1) {res.send({message: "No such account!", login: "", password: "" });res.end();} 
   
   else {
@@ -30,7 +30,7 @@ router.post('/registration/check/', async function(req, res, next) {
   console.log('Registration checking ...');
   message = "Checking availbility..."
   Users.find({ email : req.body.email }).exec()
-  .then( result => {//console.log(result)
+  .then( result => {
   if (result.length>0) {message = "Email taken!"} 
   else {
   const newUser = new Users({
