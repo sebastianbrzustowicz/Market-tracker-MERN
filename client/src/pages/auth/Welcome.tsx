@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import bcrypt from "bcryptjs-react";
+
 
 interface WelcomeProps {
     loginStatus: string;
@@ -19,17 +21,18 @@ export default function Welcome({loginStatus, setLoginStatus, registerStatus, se
     function handleLogin(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         const emailNameL = (document.getElementById('emailNameL') as HTMLInputElement).value;
-        const passwordNameL = (document.getElementById('passwordNameL') as HTMLInputElement).value;
-
+        // hashing pw
+        //const passwordNameL = bcrypt.hash((document.getElementById('passwordNameL') as HTMLInputElement).value, 10);
+        const hashedPassword = bcrypt.hashSync((document.getElementById('passwordNameL') as HTMLInputElement).value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
         fetch("http://localhost:9000/users/login/check/", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              email: emailNameL,
-              password: passwordNameL,
-           }),
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: emailNameL,
+            password: hashedPassword,
+        }),
         })
         .then(function (response) { return response.json()})
         .then(result => {setLoginStatus(result.message)
@@ -42,8 +45,7 @@ export default function Welcome({loginStatus, setLoginStatus, registerStatus, se
             sessionStorage.setItem("login" , '');
             sessionStorage.setItem("password" , '');
         }
-        })
-
+        });
     }
 
     function handleRegistration(event: React.FormEvent<HTMLFormElement>) {
@@ -55,18 +57,20 @@ export default function Welcome({loginStatus, setLoginStatus, registerStatus, se
 
         if (passwordNameR === passwordName2R) {
         if (passwordNameR.length < 8) {setRegisterStatus("Password too short!")} else {
-
+        
+        //hashing pw
+        const hashedPassword = bcrypt.hashSync((document.getElementById('passwordNameR') as HTMLInputElement).value, '$2a$10$CwTycUXWue0Thq9StjUM0u')
         fetch("http://localhost:9000/users/registration/check/", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
 
-              email: emailNameR,
-              login: loginNameR,
-              password: passwordNameR,
-           }),
+          email: emailNameR,
+          login: loginNameR,
+          password: hashedPassword,
+        }),
         })
         .then(function (response) { return response.json()})
         .then(result => setRegisterStatus(result.message))

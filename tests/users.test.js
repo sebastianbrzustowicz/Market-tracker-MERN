@@ -1,4 +1,4 @@
-const users = require("../server/routes/users.js");
+const users = require("../routes/users.js");
 
 const request = require("supertest");
 const express = require("express");
