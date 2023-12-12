@@ -1,6 +1,6 @@
 # Market tracking web application
 
-React + Node.js + MongoDB + Express + Jest. This web application allows you to track your stocks via open API.
+React + Node.js + MongoDB + Express + Rest API + Jest. This web application allows you to track your stocks via open API.
 
 ## Available Scripts
 
